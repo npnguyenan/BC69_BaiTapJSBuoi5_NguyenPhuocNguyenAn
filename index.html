@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bài tập JS buổi 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <h2>Bài tập quản lý tuyển sinh</h2>
+      <div class="row">
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Điểm chuẩn của hội đồng</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtDiemChuan"
+              aria-describedby="helpId"
+              placeholder="Nhập điểm chuẩn"
+            />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Đối tượng ưu tiên</label>
+            <select
+              class="form-select form-select-lg"
+              name=""
+              id="doiTuongUuTien"
+            >
+              <option value="0">0</option>
+              <option value="2.5">1</option>
+              <option value="1.5">2</option>
+              <option value="1">3</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Khu vực ưu tiên</label>
+            <select
+              class="form-select form-select-lg"
+              name=""
+              id="khuVucUuTien"
+            >
+              <option value="0">X</option>
+              <option value="2">A</option>
+              <option value="1">B</option>
+              <option value="0.5">C</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Điểm môn thứ nhất</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtDiem1"
+              aria-describedby="helpId"
+              placeholder="Nhập điểm môn thứ nhất"
+            />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Điểm môn thứ hai</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtDiem2"
+              aria-describedby="helpId"
+              placeholder="Nhập điểm môn thứ hai"
+            />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Điểm môn thứ ba</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtDiem3"
+              aria-describedby="helpId"
+              placeholder="Nhập điểm môn thứ ba"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <button onclick="quanLyTuyenSinh()" class="btn btn-success">
+              Tính điểm
+            </button>
+          </div>
+          <div class="col-6">
+            <h3>Kết quả</h3>
+            <span id="txtKetQuaTuyenSinh"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container py-5">
+      <h2>Bài tập tính tiền điện</h2>
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="" class="form-label">Tên hộ gia đình</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id="txtTenHoGiaDinh"
+              aria-describedby="helpId"
+              placeholder="Nhập tên hộ gia đình"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="" class="form-label">Số Kw</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtKw"
+              aria-describedby="helpId"
+              placeholder="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <button onclick="tinhTienDien()" class="btn btn-success">
+            Tính tiền điện
+          </button>
+        </div>
+        <div class="col-6">
+          <h3>Kết quả</h3>
+          <span id="txtKetQuaTienDien"></span>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container py-5">
+      <h2>Bài tập tính thuế thu nhập cá nhân</h2>
+      <div class="row">
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Họ tên</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id="txtHoTen"
+              aria-describedby="helpId"
+              placeholder="Nhập họ và tên"
+            />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Tổng thu nhập năm</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtTongThuNhap"
+              aria-describedby="helpId"
+              placeholder="Nhập tổng thu nhập (lớn hơn 4 triệu)"
+            />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mb-3">
+            <label for="" class="form-label">Số người phụ thuộc</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtSoNguoiPhuThuoc"
+              aria-describedby="helpId"
+              placeholder="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <button onclick="thuThuNhapCaNhan()" class="btn btn-success">
+            Tính thuế
+          </button>
+        </div>
+        <div class="col-6">
+          <h3>Kết quả</h3>
+          <span id="txtKetQuaThue"></span>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container py-5">
+      <h2>Bài tập tính tiền cáp</h2>
+      <div class="row">
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="" class="form-label">Mã khách hàng</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id="txtMaKhachHang"
+              aria-describedby="helpId"
+              placeholder="Nhập mã khách hàng"
+            />
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="" class="form-label">Loại khách hàng</label>
+            <select
+              class="form-select form-select-lg"
+              name=""
+              id="loaiKhachHang"
+            >
+              <option value="nd">Nhà dân</option>
+              <option value="dn">Doanh nghiệp</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="" class="form-label">Số kênh cao cấp</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id="txtSoKenhCaoCap"
+              aria-describedby="helpId"
+              placeholder="0"
+            />
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="" class="form-label">Số kết nối</label>
+            <input
+              disabled
+              type="number"
+              class="form-control"
+              name=""
+              id="txtSoKetnoi"
+              aria-describedby="helpId"
+              placeholder="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <button onclick="tinhTienCap()" class="btn btn-success">
+            Tính tiền cáp
+          </button>
+        </div>
+        <div class="col-6">
+          <h3>Kết quả</h3>
+          <span id="txtTienCap"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
